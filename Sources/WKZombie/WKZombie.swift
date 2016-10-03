@@ -96,6 +96,15 @@ open class WKZombie : NSObject {
         self._fetcher = ContentFetcher()
     }
     
+    #if os(OSX)
+    public init(name: String? = "WKZombie", processPool: WKProcessPool? = nil, view: NSView) {
+        super.init()
+        self.name = name
+        self._renderer = Renderer(processPool: processPool, view: view)
+        self._fetcher = ContentFetcher()
+    }
+    #endif
+    
     //========================================
     // MARK: Response Handling
     //========================================

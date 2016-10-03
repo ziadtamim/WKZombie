@@ -37,8 +37,8 @@ import Foundation
  __using the shared WKZombie instance__.
  - seealso: _open()_ function in _WKZombie_ class for more info.
  */
-public func open<T: Page>(_ url: URL) -> Action<T> {
-    return WKZombie.sharedInstance.open(url)
+public func open<T: Page>(_ url: URL, instance: WKZombie) -> Action<T> {
+    return instance.open(url)
 }
 
 /**
@@ -54,8 +54,8 @@ public func open<T: Page>(then postAction: PostAction) -> (_ url: URL) -> Action
  The returned WKZombie Action will return the current page __using the shared WKZombie instance__.
  - seealso: _inspect()_ function in _WKZombie_ class for more info.
  */
-public func inspect<T: Page>() -> Action<T> {
-    return WKZombie.sharedInstance.inspect()
+public func inspect<T: Page>(instance: WKZombie) -> Action<T> {
+    return instance.inspect()
 }
 
 
@@ -96,8 +96,8 @@ public func click<T: Page>(_ link : HTMLLink) -> Action<T> {
  Simulates the click of a HTML link __using the shared WKZombie instance__.
  - seealso: _click()_ function in _WKZombie_ class for more info.
  */
-public func click<T: Page>(then postAction: PostAction) -> (_ link : HTMLLink) -> Action<T> {
-    return WKZombie.sharedInstance.click(then: postAction)
+public func click<T: Page>(then postAction: PostAction, instance: WKZombie) -> (_ link : HTMLLink) -> Action<T> {
+    return instance.click(then: postAction)
 }
 
 /**
@@ -160,8 +160,8 @@ public func setAttribute<T: HTMLElement>(_ key: String, value: String?) -> (_ el
  the passed key/value attributes. __The the shared WKZombie instance will be used__.
  - seealso: _getAll()_ function in _WKZombie_ class for more info.
  */
-public func getAll<T: HTMLElement>(by searchType: SearchType<T>) -> (_ page: HTMLPage) -> Action<[T]> {
-    return WKZombie.sharedInstance.getAll(by: searchType)
+public func getAll<T: HTMLElement>(by searchType: SearchType<T>, instance: WKZombie) -> (_ page: HTMLPage) -> Action<[T]> {
+    return instance.getAll(by: searchType)
 }
 
 /**
@@ -169,8 +169,8 @@ public func getAll<T: HTMLElement>(by searchType: SearchType<T>) -> (_ page: HTM
  the passed key/value attributes. __The shared WKZombie instance will be used__.
  - seealso: _get()_ function in _WKZombie_ class for more info.
  */
-public func get<T: HTMLElement>(by searchType: SearchType<T>) -> (_ page: HTMLPage) -> Action<T> {
-    return WKZombie.sharedInstance.get(by: searchType)
+public func get<T: HTMLElement>(by searchType: SearchType<T>, instance: WKZombie) -> (_ page: HTMLPage) -> Action<T> {
+    return instance.get(by: searchType)
 }
 
 
@@ -183,16 +183,16 @@ public func get<T: HTMLElement>(by searchType: SearchType<T>) -> (_ page: HTMLPa
  The returned WKZombie Action will execute a JavaScript string __using the shared WKZombie instance__.
  - seealso: _execute()_ function in _WKZombie_ class for more info.
  */
-public func execute(_ script: JavaScript) -> Action<JavaScriptResult> {
-    return WKZombie.sharedInstance.execute(script)
+public func execute(_ script: JavaScript, instance: WKZombie) -> Action<JavaScriptResult> {
+    return instance.execute(script)
 }
 
 /**
  The returned WKZombie Action will execute a JavaScript string __using the shared WKZombie instance__.
  - seealso: _execute()_ function in _WKZombie_ class for more info.
  */
-public func execute<T: HTMLPage>(_ script: JavaScript) -> (_ page: T) -> Action<JavaScriptResult> {
-    return WKZombie.sharedInstance.execute(script)
+public func execute<T: HTMLPage>(_ script: JavaScript, instance: WKZombie) -> (_ page: T) -> Action<JavaScriptResult> {
+    return instance.execute(script)
 }
 
 
@@ -352,15 +352,15 @@ public func decode<T : JSONDecodable>(_ array: JSONParsable) -> Action<[T]> {
 /**
  Prints the current state of the WKZombie browser to the console.
  */
-public func dump() {
-    WKZombie.sharedInstance.dump()
+public func dump(instance: WKZombie) {
+    instance.dump()
 }
 
 /**
  Clears the cache/cookie data (such as login data, etc).
  */
 @available(OSX 10.11, *)
-public func clearCache() {
-    WKZombie.sharedInstance.clearCache()
+public func clearCache(instance: WKZombie) {
+    instance.clearCache()
 }
 
