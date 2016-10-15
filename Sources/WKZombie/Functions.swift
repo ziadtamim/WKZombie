@@ -68,7 +68,7 @@ public func inspect<T: Page>(instance: WKZombie) -> Action<T> {
  - seealso: _submit()_ function in _WKZombie_ class for more info.
  */
 public func submit<T: Page>(_ form: HTMLForm, instance: WKZombie) -> Action<T> {
-    return WKZombie.sharedInstance.submit(form)
+    return instance.submit(form)
 }
 
 /**
@@ -76,7 +76,7 @@ public func submit<T: Page>(_ form: HTMLForm, instance: WKZombie) -> Action<T> {
  - seealso: _submit()_ function in _WKZombie_ class for more info.
  */
 public func submit<T: Page>(then postAction: PostAction, instance: WKZombie) -> (_ form: HTMLForm) -> Action<T> {
-    return WKZombie.sharedInstance.submit(then: postAction)
+    return instance.submit(then: postAction)
 }
 
 
@@ -89,7 +89,7 @@ public func submit<T: Page>(then postAction: PostAction, instance: WKZombie) -> 
  - seealso: _click()_ function in _WKZombie_ class for more info.
  */
 public func click<T: Page>(_ link : HTMLLink, instance: WKZombie) -> Action<T> {
-    return WKZombie.sharedInstance.click(link)
+    return instance.click(link)
 }
 
 /**
@@ -105,7 +105,7 @@ public func click<T: Page>(then postAction: PostAction, instance: WKZombie) -> (
  - seealso: _press()_ function in _WKZombie_ class for more info.
  */
 public func press<T: Page>(_ button : HTMLButton, instance: WKZombie) -> Action<T> {
-    return WKZombie.sharedInstance.press(button)
+    return instance.press(button)
 }
 
 /**
@@ -113,7 +113,7 @@ public func press<T: Page>(_ button : HTMLButton, instance: WKZombie) -> Action<
  - seealso: _press()_ function in _WKZombie_ class for more info.
  */
 public func press<T: Page>(then postAction: PostAction, instance: WKZombie) -> (_ button : HTMLButton) -> Action<T> {
-    return WKZombie.sharedInstance.press(then: postAction)
+    return instance.press(then: postAction)
 }
 
 //========================================
