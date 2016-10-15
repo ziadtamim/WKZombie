@@ -67,7 +67,7 @@ public func inspect<T: Page>(instance: WKZombie) -> Action<T> {
  Submits the specified HTML form __using the shared WKZombie instance__.
  - seealso: _submit()_ function in _WKZombie_ class for more info.
  */
-public func submit<T: Page>(_ form: HTMLForm) -> Action<T> {
+public func submit<T: Page>(_ form: HTMLForm, instance: WKZombie) -> Action<T> {
     return WKZombie.sharedInstance.submit(form)
 }
 
@@ -75,7 +75,7 @@ public func submit<T: Page>(_ form: HTMLForm) -> Action<T> {
  Submits the specified HTML form __using the shared WKZombie instance__.
  - seealso: _submit()_ function in _WKZombie_ class for more info.
  */
-public func submit<T: Page>(then postAction: PostAction) -> (_ form: HTMLForm) -> Action<T> {
+public func submit<T: Page>(then postAction: PostAction, instance: WKZombie) -> (_ form: HTMLForm) -> Action<T> {
     return WKZombie.sharedInstance.submit(then: postAction)
 }
 
@@ -88,7 +88,7 @@ public func submit<T: Page>(then postAction: PostAction) -> (_ form: HTMLForm) -
  Simulates the click of a HTML link __using the shared WKZombie instance__.
  - seealso: _click()_ function in _WKZombie_ class for more info.
  */
-public func click<T: Page>(_ link : HTMLLink) -> Action<T> {
+public func click<T: Page>(_ link : HTMLLink, instance: WKZombie) -> Action<T> {
     return WKZombie.sharedInstance.click(link)
 }
 
@@ -104,7 +104,7 @@ public func click<T: Page>(then postAction: PostAction, instance: WKZombie) -> (
  Simulates HTMLButton press __using the shared WKZombie instance__.
  - seealso: _press()_ function in _WKZombie_ class for more info.
  */
-public func press<T: Page>(_ button : HTMLButton) -> Action<T> {
+public func press<T: Page>(_ button : HTMLButton, instance: WKZombie) -> Action<T> {
     return WKZombie.sharedInstance.press(button)
 }
 
@@ -112,7 +112,7 @@ public func press<T: Page>(_ button : HTMLButton) -> Action<T> {
  Simulates HTMLButton press __using the shared WKZombie instance__.
  - seealso: _press()_ function in _WKZombie_ class for more info.
  */
-public func press<T: Page>(then postAction: PostAction) -> (_ button : HTMLButton) -> Action<T> {
+public func press<T: Page>(then postAction: PostAction, instance: WKZombie) -> (_ button : HTMLButton) -> Action<T> {
     return WKZombie.sharedInstance.press(then: postAction)
 }
 
