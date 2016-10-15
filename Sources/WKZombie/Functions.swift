@@ -145,8 +145,8 @@ public func swap<T: Page>(then postAction: PostAction) -> (_ iframe : HTMLFrame)
  __using the shared WKZombie instance__.
  - seealso: _setAttribute()_ function in _WKZombie_ class for more info.
  */
-public func setAttribute<T: HTMLElement>(_ key: String, value: String?) -> (_ element: T) -> Action<HTMLPage> {
-    return WKZombie.sharedInstance.setAttribute(key, value: value)
+public func setAttribute<T: HTMLElement>(_ key: String, value: String?, instance: WKZombie) -> (_ element: T) -> Action<HTMLPage> {
+    return instance.setAttribute(key, value: value)
 }
 
 
