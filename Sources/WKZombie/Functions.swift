@@ -46,8 +46,8 @@ public func open<T: Page>(_ url: URL, instance: WKZombie) -> Action<T> {
  __using the shared WKZombie instance__.
  - seealso: _open()_ function in _WKZombie_ class for more info.
  */
-public func open<T: Page>(then postAction: PostAction) -> (_ url: URL) -> Action<T> {
-    return WKZombie.sharedInstance.open(then: postAction)
+public func open<T: Page>(then postAction: PostAction, instance: WKZombie) -> (_ url: URL) -> Action<T> {
+    return instance.open(then: postAction)
 }
 
 /**
